@@ -8,9 +8,9 @@
 </head>
 <body>
   <label for="input1">Input nilai 1:</label>
-    <input type="text" placeholder="masukan inputan angka 1" id="input1"><br><br>
+    <input type="number" placeholder="masukan inputan angka 1" id="input1"><br><br>
   <label>input nilai 2:</label>
-    <input type="text" placeholder="masukan inputan angka 2" id="input2"><br><br>
+    <input type="number" placeholder="masukan inputan angka 2" id="input2"><br><br>
   <label>Pilih fungsi:</label><br>
     <input type="radio" name="operator" id="tambah" onclick="tambah()">tambah<br>
     <input type="radio" name="operator" id="kurang" onclick="kurang()">kurang<br>
@@ -34,39 +34,54 @@
 
       function printHasil(output)
       {
-        hasil = document.getElementById('hasil');
+        hasil = document.getElementById("hasil");
         return hasil.value = output;
       }
 
       function tambah()
       {
-        let nilai = ambilNilai();
-        let prosesTambah = 0;
-        for (let a = 0; a < nilai.length; a++)
         {
-          prosesTambah += parseInt(nilai[a]);
-        }
-        // console.log(prosesTambah);
-        return printHasil(prosesTambah);
+          let nilai = ambilNilai();
+          prosesTambah = parseInt(nilai[0]) + parseInt(nilai[1]);
       }
+      return printHasil(prosesTambah);
+    }
 
       function kurang()
       {
-        nilai = ambilNilai();
-        console.log(nilai);
+        {
+        let nilai = ambilNilai();
+        prosesTambah1 = parseInt(nilai[0]) - parseInt(nilai[1]);
       }
-
+      return printHasil(prosesTambah1);
+    }
       function kali()
       {
-        nilai = ambilNilai();
-        console.log(nilai);
+        {
+        let nilai = ambilNilai();
+        prosesTambah2 = parseInt(nilai[0]) * parseInt(nilai[1]);
       }
-
+      return printHasil(prosesTambah2);
+    }
       function bagi()
       {
-        nilai = ambilNilai();
-        console.log(nilai);
+        {
+           let nilai = ambilNilai();
+        prosesTambah3 = parseInt(nilai[0]) / parseInt(nilai[1]);
       }
+      return printHasil(prosesTambah3);
+    }
+      function reset()
+      {
+        document.getElementById('input1').value = '';
+        document.getElementById('input2').value = '';
+        document.getElementById('hasil').value = '';
+        document.getElementById('Tambah').checked = false;
+        document.getElementById('kurang').checked = false;
+        document.getElementById('bagi').checked = false;
+        
+      }
+    
     </script>
 </body>
 </html>
