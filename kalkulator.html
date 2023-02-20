@@ -18,6 +18,7 @@
     <input type="radio" name="operator" id="bagi" onclick="bagi()">bagi<br><br>
   <label>Hasil:</label>
     <input type="text" id="hasil" disabled>
+    <input type="reset" value="reset" onclick='resetform()' id="r">
     <script>
       function ambilNilai()
       {
@@ -71,17 +72,20 @@
       }
       return printHasil(prosesTambah3);
     }
-      function reset()
+      function resetform()
       {
         document.getElementById('input1').value = '';
         document.getElementById('input2').value = '';
         document.getElementById('hasil').value = '';
-        document.getElementById('Tambah').checked = false;
+        document.getElementById('tambah').checked = false;
         document.getElementById('kurang').checked = false;
         document.getElementById('bagi').checked = false;
-        
-      }
+        document.getElementById('kali').checked = false;
+
+
+        }
     
+
     </script>
 </body>
 </html>
