@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Kalkulator</title>
 </head>
-<body>
+<body bgcolor="aqua">
   <label for="input1">Input nilai 1:</label>
     <input type="number" placeholder="masukan inputan angka 1" id="input1"><br><br>
   <label>input nilai 2:</label>
@@ -15,11 +15,18 @@
     <input type="radio" name="operator" id="tambah" onclick="tambah()">tambah<br>
     <input type="radio" name="operator" id="kurang" onclick="kurang()">kurang<br>
     <input type="radio" name="operator" id="kali" onclick="kali()">kali<br>
-    <input type="radio" name="operator" id="bagi" onclick="bagi()">bagi<br><br>
+    <input type="radio" name="operator" id="bagi" onclick="bagi()">bagi<br>
+    <input type="radio" name="operator" id="modulus" onclick="modulus()">modulus<br>
+    <input type="radio" name="operator" id="pangkat2" onclick="pangkat2()">pangkat<br>
+    <input type="radio" name="operator" id="persen" onclick="persen()">persen<br>
+    
   <label>Hasil:</label>
     <input type="text" id="hasil" disabled>
     <input type="reset" value="reset" onclick='resetform()' id="r">
+    <br>
+    <br>
     <script>
+
       function ambilNilai()
       {
         nilaiSatu = document.getElementById('input1').value;
@@ -33,6 +40,7 @@
         }
       }
 
+     
       function printHasil(output)
       {
         hasil = document.getElementById("hasil");
@@ -71,20 +79,43 @@
         prosesTambah3 = parseInt(nilai[0]) / parseInt(nilai[1]);
       }
       return printHasil(prosesTambah3);
+      
     }
+
       function resetform()
       {
         document.getElementById('input1').value = '';
         document.getElementById('input2').value = '';
         document.getElementById('hasil').value = '';
-        document.getElementById('tambah').checked = false;
-        document.getElementById('kurang').checked = false;
-        document.getElementById('bagi').checked = false;
-        document.getElementById('kali').checked = false;
+        document.getElementById(tambah).checked = false;
+        document.getElementById(kurang).checked = false;
+        document.getElementById(bagi).checked = false;
+
+      }  
+        function pangkat2()
+        {
+           let nilai = ambilNilai();
+        prosesTambah4 = Math.pow ((nilai[0]) ,(nilai[1]));
+      return printHasil(prosesTambah4);
+        }
+
+        function persen() {
+
+      let star = (document.getElementById("input1").value);
+      let end = (document.getElementById("input2").value);
+
+        let result = (star / 100) * end;
+        return printHasil(result)
+        }
+
+        function modulus() {
+          var mulai1 = parseInt(document.getElementById("input1").value);
+          var mulai2 = parseInt(document.getElementById("input2").value);
+          var modulus = mulai1 % mulai2;
+          return printHasil(modulus)
 
 
         }
-    
 
     </script>
 </body>
